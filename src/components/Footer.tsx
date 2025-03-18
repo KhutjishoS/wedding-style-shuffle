@@ -18,6 +18,15 @@ const Footer = () => {
     }
   };
 
+  const quickLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Planning', path: '/planning' },
+    { name: 'Our Approach', path: '/our-approach' },
+    { name: 'Gallery', path: '/gallery' },
+    { name: 'Our Team', path: '/our-team' },
+    { name: 'Contact', path: '/contact' },
+  ];
+
   return (
     <footer className="bg-charcoal text-white">
       <div className="max-w-7xl mx-auto px-4 pt-16 pb-8">
@@ -53,14 +62,14 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-medium mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              {['Home', 'Venues', 'Services', 'Gallery', 'About Us', 'Contact'].map((item) => (
-                <li key={item}>
+              {quickLinks.map((link) => (
+                <li key={link.name}>
                   <Link
-                    to={`/${item.toLowerCase().replace(' ', '-')}`}
+                    to={link.path}
                     className="text-white/70 hover:text-rose transition-colors duration-300 inline-flex items-center"
                   >
                     <ArrowRight size={14} className="mr-2" />
-                    {item}
+                    {link.name}
                   </Link>
                 </li>
               ))}
