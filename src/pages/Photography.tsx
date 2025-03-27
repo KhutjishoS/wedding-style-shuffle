@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
-import { Calendar, CheckCircle, Clock } from "lucide-react";
+import { Camera, CheckCircle, Clock } from "lucide-react";
 
-const Planning = () => {
+const Photography = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -14,13 +14,13 @@ const Planning = () => {
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="text-center mb-12">
             <span className="inline-block py-1 px-3 rounded-full bg-rose/10 text-rose text-xs font-medium tracking-wide mb-3">
-              Wedding Planning
+              Wedding Photography
             </span>
             <h1 className="text-4xl md:text-5xl font-serif mb-4">
-              Your Dream Wedding, Effortlessly Planned
+              Capture Your Perfect Moments
             </h1>
             <p className="text-charcoal/70 max-w-3xl mx-auto">
-              Our wedding planning services are designed to make your journey to the altar as smooth and enjoyable as possible.
+              Our expert photographers will preserve your special day in stunning, timeless images.
             </p>
           </AnimatedSection>
         </div>
@@ -31,23 +31,23 @@ const Planning = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <AnimatedSection>
               <img
-                src="https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                alt="Wedding Planning"
+                src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?q=80&w=1740&auto=format&fit=crop"
+                alt="Wedding Photography"
                 className="rounded-lg shadow-lg w-full h-[500px] object-cover"
               />
             </AnimatedSection>
             
             <AnimatedSection delay={100}>
-              <h2 className="text-3xl font-serif mb-6">Our Planning Process</h2>
+              <h2 className="text-3xl font-serif mb-6">Our Photography Process</h2>
               <div className="space-y-6">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-10 h-10 bg-sage/10 rounded-full flex items-center justify-center">
-                    <Calendar className="text-sage-dark" size={20} />
+                    <Camera className="text-sage-dark" size={20} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-medium mb-2">Initial Consultation</h3>
+                    <h3 className="text-xl font-medium mb-2">Pre-Wedding Consultation</h3>
                     <p className="text-charcoal/70">
-                      We begin with understanding your vision, preferences, and budget to create a personalized wedding plan.
+                      We discuss your vision, preferred style, and must-have shots to create a personalized photography plan.
                     </p>
                   </div>
                 </div>
@@ -57,9 +57,9 @@ const Planning = () => {
                     <CheckCircle className="text-sage-dark" size={20} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-medium mb-2">Vendor Selection</h3>
+                    <h3 className="text-xl font-medium mb-2">Wedding Day Coverage</h3>
                     <p className="text-charcoal/70">
-                      We help you choose and coordinate with trusted vendors that match your style and budget requirements.
+                      Our photographers capture every precious moment, from getting ready to the last dance.
                     </p>
                   </div>
                 </div>
@@ -69,9 +69,9 @@ const Planning = () => {
                     <Clock className="text-sage-dark" size={20} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-medium mb-2">Timeline Management</h3>
+                    <h3 className="text-xl font-medium mb-2">Post-Production</h3>
                     <p className="text-charcoal/70">
-                      We create and manage a detailed timeline to ensure every aspect of your wedding planning stays on track.
+                      We carefully edit and retouch your photos to ensure they're perfect before delivery.
                     </p>
                   </div>
                 </div>
@@ -84,34 +84,34 @@ const Planning = () => {
       <section className="py-16 px-4 bg-sage/10">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection className="text-center mb-12">
-            <h2 className="text-3xl font-serif mb-4">Our Planning Packages</h2>
+            <h2 className="text-3xl font-serif mb-4">Photography Packages</h2>
             <p className="text-charcoal/70 max-w-2xl mx-auto">
-              Choose the level of support that best suits your needs.
+              Choose the perfect package for your wedding photography needs.
             </p>
           </AnimatedSection>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <AnimatedSection delay={100}>
               <div className="bg-white p-8 rounded-lg shadow-sm h-full">
-                <h3 className="text-xl font-serif mb-3">Day-of Coordination</h3>
+                <h3 className="text-xl font-serif mb-3">Essential Package</h3>
                 <p className="text-charcoal/70 mb-4">
-                  Perfect for couples who have planned their wedding but need professional support on the day.
+                  Perfect for intimate weddings with basic photography needs.
                 </p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-center gap-2">
                     <CheckCircle className="text-sage-dark" size={16} />
-                    <span>Detailed timeline creation</span>
+                    <span>6 hours coverage</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="text-sage-dark" size={16} />
-                    <span>Vendor coordination</span>
+                    <span>100 edited photos</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="text-sage-dark" size={16} />
-                    <span>Ceremony rehearsal</span>
+                    <span>Digital delivery</span>
                   </li>
                 </ul>
-                <p className="font-medium">Starting at R 1,500</p>
+                <p className="font-medium">Starting at R 3,500</p>
               </div>
             </AnimatedSection>
             
@@ -120,67 +120,75 @@ const Planning = () => {
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-rose text-white py-1 px-4 rounded-full text-sm">
                   Most Popular
                 </div>
-                <h3 className="text-xl font-serif mb-3">Partial Planning</h3>
+                <h3 className="text-xl font-serif mb-3">Premium Package</h3>
                 <p className="text-charcoal/70 mb-4">
-                  Ideal for couples who have started planning but need guidance and support with specific elements.
+                  Comprehensive coverage for your entire wedding day.
                 </p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-center gap-2">
                     <CheckCircle className="text-sage-dark" size={16} />
-                    <span>All day-of coordination services</span>
+                    <span>Full day coverage</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="text-sage-dark" size={16} />
-                    <span>Vendor recommendations & bookings</span>
+                    <span>300 edited photos</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="text-sage-dark" size={16} />
-                    <span>Design and decor guidance</span>
+                    <span>Engagement session</span>
                   </li>
                 </ul>
-                <p className="font-medium">Starting at R 3,500</p>
+                <p className="font-medium">Starting at R 5,500</p>
               </div>
             </AnimatedSection>
             
             <AnimatedSection delay={300}>
               <div className="bg-white p-8 rounded-lg shadow-sm h-full">
-                <h3 className="text-xl font-serif mb-3">Full Planning</h3>
+                <h3 className="text-xl font-serif mb-3">Luxury Package</h3>
                 <p className="text-charcoal/70 mb-4">
-                  Comprehensive planning support from engagement to "I do" for a truly stress-free experience.
+                  The ultimate photography experience for your special day.
                 </p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-center gap-2">
                     <CheckCircle className="text-sage-dark" size={16} />
-                    <span>All partial planning services</span>
+                    <span>Full day coverage</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="text-sage-dark" size={16} />
-                    <span>Budget management</span>
+                    <span>500 edited photos</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="text-sage-dark" size={16} />
-                    <span>Guest management</span>
+                    <span>Second photographer</span>
                   </li>
                 </ul>
-                <p className="font-medium">Starting at R 6,000</p>
+                <p className="font-medium">Starting at R 8,500</p>
               </div>
             </AnimatedSection>
           </div>
         </div>
       </section>
       
-      <section className="py-16 px-4 bg-cover bg-center text-white relative" style={{ 
-        backgroundImage: "url('https://images.unsplash.com/photo-1469371670807-013ccf25f16a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')" 
-      }}>
+      <section 
+        className="py-20 px-4 text-white relative"
+        style={{
+          backgroundImage: "url('https://images.unsplash.com/photo-1537633552985-df8429e8048b?q=80&w=1740&auto=format&fit=crop')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
         <div className="absolute inset-0 bg-charcoal/60"></div>
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-serif mb-6">
-              Ready to Start Planning Your Perfect Day?
+              Ready to Capture Your Special Day?
             </h2>
             <p className="text-white/90 mb-8 max-w-2xl mx-auto">
-              Contact us today to schedule a consultation and discover how we can bring your wedding dreams to life.
+              Book a consultation to discuss your photography needs and view our portfolio.
             </p>
+            <button className="bg-rose hover:bg-rose-dark text-white py-3 px-8 rounded-md transition-all duration-300">
+              Book a Consultation
+            </button>
           </AnimatedSection>
         </div>
       </section>
@@ -190,4 +198,4 @@ const Planning = () => {
   );
 };
 
-export default Planning;
+export default Photography; 

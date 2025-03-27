@@ -1,4 +1,3 @@
-
 import { ArrowDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
@@ -60,14 +59,6 @@ const Hero = () => {
           From enchanting venues to exceptional services, we curate every element 
           to transform your vision into an exquisite celebration of love.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0 animate-fade-in-up" style={{ animationDelay: '900ms' }}>
-          <button className="bg-rose hover:bg-rose-dark text-white py-3 px-8 rounded-md transition-all duration-300 flex items-center gap-2 min-w-[180px] justify-center">
-            Explore Services
-          </button>
-          <button className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white py-3 px-8 rounded-md transition-all duration-300 flex items-center gap-2 min-w-[180px] justify-center">
-            Find Venues
-          </button>
-        </div>
       </div>
       
       {/* Scroll down indicator */}

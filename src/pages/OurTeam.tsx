@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
@@ -67,50 +66,23 @@ const OurTeam = () => {
       
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {team.map((member, index) => (
               <AnimatedSection key={member.name} delay={index * 100}>
-                <div className="bg-white rounded-lg overflow-hidden shadow-sm">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="w-full h-80 object-cover object-center"
+                <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-64 object-cover"
                   />
                   <div className="p-6">
                     <h3 className="text-xl font-serif mb-1">{member.name}</h3>
-                    <p className="text-rose font-medium mb-3">{member.role}</p>
+                    <p className="text-rose mb-3">{member.role}</p>
                     <p className="text-charcoal/70">{member.bio}</p>
                   </div>
                 </div>
               </AnimatedSection>
             ))}
-          </div>
-        </div>
-      </section>
-      
-      <section className="py-16 px-4 bg-sage/10">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <AnimatedSection>
-              <img
-                src="https://images.unsplash.com/photo-1511795409834-432f7b991b52?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                alt="Team Meeting"
-                className="rounded-lg shadow-lg w-full h-[500px] object-cover"
-              />
-            </AnimatedSection>
-            
-            <AnimatedSection delay={100}>
-              <h2 className="text-3xl font-serif mb-6">Our Collective Expertise</h2>
-              <p className="text-charcoal/70 mb-6">
-                With backgrounds spanning event design, hospitality management, and fine arts, our diverse team brings a wealth of knowledge and creativity to every wedding we plan.
-              </p>
-              <p className="text-charcoal/70 mb-6">
-                We pride ourselves on staying ahead of industry trends while honoring timeless traditions, creating wedding experiences that are both innovative and elegant.
-              </p>
-              <p className="text-charcoal/70">
-                Each team member undergoes continuous education and training to ensure we're offering the very best service and most current design concepts to our couples.
-              </p>
-            </AnimatedSection>
           </div>
         </div>
       </section>

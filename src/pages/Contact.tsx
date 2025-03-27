@@ -1,27 +1,12 @@
-
 import { useEffect } from "react";
 import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/components/ui/use-toast";
 
 const Contact = () => {
-  const { toast } = useToast();
-  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message Sent",
-      description: "Thank you for reaching out! We'll get back to you within 24 hours.",
-    });
-  };
 
   return (
     <div className="page-transition-container">
@@ -45,83 +30,6 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <AnimatedSection>
-              <h2 className="text-3xl font-serif mb-6">Get in Touch</h2>
-              <p className="text-charcoal/70 mb-8">
-                Fill out the form below and one of our wedding specialists will contact you within 24 hours.
-              </p>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-charcoal mb-1">
-                      Your Name
-                    </label>
-                    <Input 
-                      id="name" 
-                      placeholder="John Smith" 
-                      required 
-                      className="w-full"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-charcoal mb-1">
-                      Email Address
-                    </label>
-                    <Input 
-                      id="email" 
-                      type="email" 
-                      placeholder="john@example.com" 
-                      required 
-                      className="w-full"
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-charcoal mb-1">
-                    Phone Number
-                  </label>
-                  <Input 
-                    id="phone" 
-                    placeholder="(123) 456-7890" 
-                    className="w-full"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="date" className="block text-sm font-medium text-charcoal mb-1">
-                    Wedding Date (if known)
-                  </label>
-                  <Input 
-                    id="date" 
-                    type="date"
-                    className="w-full"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-charcoal mb-1">
-                    Tell Us About Your Wedding
-                  </label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="Share your vision, questions, or any details about your wedding day"
-                    rows={6}
-                    className="w-full"
-                    required
-                  />
-                </div>
-                
-                <Button 
-                  type="submit" 
-                  className="bg-rose hover:bg-rose-dark text-white py-3 px-8 rounded-md transition-all duration-300 w-full md:w-auto"
-                >
-                  Send Message
-                </Button>
-              </form>
-            </AnimatedSection>
-            
-            <AnimatedSection delay={100}>
               <div className="bg-white p-8 rounded-lg shadow-sm h-full">
                 <h3 className="text-2xl font-serif mb-6">Our Information</h3>
                 
@@ -133,9 +41,9 @@ const Contact = () => {
                     <div>
                       <h4 className="text-lg font-medium mb-1">Visit Our Office</h4>
                       <p className="text-charcoal/70">
-                        123 Wedding Blvd<br />
-                        Suite 45<br />
-                        San Francisco, CA 94107
+                        123 Church Street<br />
+                        Menlyn Maine<br />
+                        Pretoria, 0181
                       </p>
                     </div>
                   </div>
@@ -147,8 +55,7 @@ const Contact = () => {
                     <div>
                       <h4 className="text-lg font-medium mb-1">Email Us</h4>
                       <p className="text-charcoal/70">
-                        hello@weddingstyleshuffle.com<br />
-                        info@weddingstyleshuffle.com
+                        khutsisoshogole@gmail.com
                       </p>
                     </div>
                   </div>
@@ -160,7 +67,7 @@ const Contact = () => {
                     <div>
                       <h4 className="text-lg font-medium mb-1">Call Us</h4>
                       <p className="text-charcoal/70">
-                        (123) 456-7890<br />
+                        0716210719<br />
                         Monday-Friday: 9am - 6pm
                       </p>
                     </div>
@@ -197,25 +104,21 @@ const Contact = () => {
                 </div>
               </div>
             </AnimatedSection>
+
+            <AnimatedSection delay={100}>
+              <div className="w-full h-[600px] rounded-lg overflow-hidden shadow-sm">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3581.9024424301397!2d28.2749354!3d-25.7837924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95628a6c1c0c1d%3A0x1e95628a6c1c0c1d!2sMenlyn%20Maine%2C%20Pretoria%2C%200181!5e0!3m2!1sen!2sza!4v1709654321!5m2!1sen!2sza" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen={true} 
+                  loading="lazy"
+                  title="Office Location"
+                ></iframe>
+              </div>
+            </AnimatedSection>
           </div>
-        </div>
-      </section>
-      
-      <section className="py-12 px-4">
-        <div className="max-w-7xl mx-auto">
-          <AnimatedSection>
-            <div className="w-full h-[400px] rounded-lg overflow-hidden">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50471.05531405742!2d-122.43294328906253!3d37.75766066293667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1625687977966!5m2!1sen!2sus" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen={true} 
-                loading="lazy"
-                title="Office Location"
-              ></iframe>
-            </div>
-          </AnimatedSection>
         </div>
       </section>
       

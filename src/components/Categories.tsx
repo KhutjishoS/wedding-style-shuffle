@@ -1,37 +1,40 @@
-
-import AnimatedSection from './AnimatedSection';
-import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import AnimatedSection from './AnimatedSection';
+import { Calendar, Camera, Heart, Utensils } from 'lucide-react';
 
 const categories = [
   {
-    id: 1,
-    title: 'Exquisite Venues',
-    description: 'Discover breathtaking locations for your perfect day',
-    image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1498&auto=format&fit=crop',
-    link: '/venues',
-  },
-  {
-    id: 2,
-    title: 'Photography',
-    description: 'Capture timeless moments with our expert photographers',
-    image: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?q=80&w=1740&auto=format&fit=crop',
-    link: '/photography',
-  },
-  {
-    id: 3,
-    title: 'Catering',
-    description: 'Culinary delights that will impress your guests',
-    image: 'https://images.unsplash.com/photo-1521137634026-7a7ea73631ae?q=80&w=1474&auto=format&fit=crop',
-    link: '/catering',
-  },
-  {
-    id: 4,
+    id: 'planning',
     title: 'Event Planning',
-    description: 'Seamless coordination for a stress-free wedding day',
-    image: 'https://images.unsplash.com/photo-1501139083538-0139583c060f?q=80&w=1470&auto=format&fit=crop',
-    link: '/planning',
+    description: 'Full-service wedding planning to bring your vision to life.',
+    image: 'https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    icon: Calendar,
+    link: '/planning'
   },
+  {
+    id: 'venues',
+    title: 'Venues',
+    description: 'Stunning locations for your ceremony and reception.',
+    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    icon: Heart,
+    link: '/venues'
+  },
+  {
+    id: 'photography',
+    title: 'Photography',
+    description: 'Professional photography to capture your special moments.',
+    image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    icon: Camera,
+    link: '/photography'
+  },
+  {
+    id: 'catering',
+    title: 'Catering',
+    description: 'Exquisite cuisine and beverage services for your celebration.',
+    image: 'https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    icon: Utensils,
+    link: '/catering'
+  }
 ];
 
 const Categories = () => {
@@ -54,37 +57,24 @@ const Categories = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           {categories.map((category, index) => (
             <AnimatedSection key={category.id} delay={index * 100}>
-              <Link to={category.link} className="category-card block group">
-                <div className="overflow-hidden">
-                  <img 
-                    src={category.image} 
+              <Link to={category.link} className="group">
+                <div className="relative overflow-hidden rounded-lg aspect-[4/3] mb-4">
+                  <img
+                    src={category.image}
                     alt={category.title}
-                    className="category-card-img"
-                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <div className="p-5">
-                  <h3 className="text-xl font-serif mb-2 group-hover:text-rose transition-colors duration-300">
-                    {category.title}
-                  </h3>
-                  <p className="text-charcoal/70 text-sm mb-4">
-                    {category.description}
-                  </p>
-                  <div className="flex items-center text-rose text-sm font-medium">
-                    <span>Explore</span>
-                    <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
-                  </div>
+                <div className="flex items-center gap-2 mb-2">
+                  <category.icon className="text-rose" size={20} />
+                  <h3 className="text-xl font-serif">{category.title}</h3>
                 </div>
+                <p className="text-charcoal/70">{category.description}</p>
               </Link>
             </AnimatedSection>
           ))}
         </div>
-        
-        <AnimatedSection delay={400} className="text-center">
-          <Link to="/services" className="btn-outline">
-            View All Services <ArrowRight size={16} />
-          </Link>
-        </AnimatedSection>
       </div>
     </section>
   );

@@ -1,12 +1,15 @@
-
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Heart, ShoppingCart } from 'lucide-react';
+import { useWishlist } from '@/hooks/useWishlist';
+import { useCart } from '@/hooks/useCart';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { items: wishlistItems } = useWishlist();
+  const { items: cartItems } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +31,8 @@ const Navbar = () => {
     { name: 'Our Team', href: '/our-team' },
     { name: 'Contact', href: '/contact' },
   ];
+
+  const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <header
@@ -54,6 +59,30 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
+          <div className="flex items-center space-x-4">
+            <Link
+              to="/wishlist"
+              className="relative text-charcoal/80 hover:text-rose transition-colors duration-300"
+            >
+              <Heart className="w-5 h-5" />
+              {wishlistItems.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-rose text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {wishlistItems.length}
+                </span>
+              )}
+            </Link>
+            <Link
+              to="/cart"
+              className="relative text-charcoal/80 hover:text-rose transition-colors duration-300"
+            >
+              <ShoppingCart className="w-5 h-5" />
+              {cartItemCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-rose text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartItemCount}
+                </span>
+              )}
+            </Link>
+          </div>
         </nav>
 
         {/* Mobile Nav Toggle */}
@@ -83,6 +112,30 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+            <Link
+              to="/wishlist"
+              className="text-charcoal hover:text-rose transition-colors duration-300 text-xl flex items-center space-x-2"
+              onClick={() => setIsOpen(false)}
+            >
+              <span>Wishlist</span>
+              {wishlistItems.length > 0 && (
+                <span className="bg-rose text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {wishlistItems.length}
+                </span>
+              )}
+            </Link>
+            <Link
+              to="/cart"
+              className="text-charcoal hover:text-rose transition-colors duration-300 text-xl flex items-center space-x-2"
+              onClick={() => setIsOpen(false)}
+            >
+              <span>Cart</span>
+              {cartItemCount > 0 && (
+                <span className="bg-rose text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartItemCount}
+                </span>
+              )}
+            </Link>
           </nav>
         </div>
       </div>
