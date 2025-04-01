@@ -1,0 +1,168 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 33% 97%; /* Cream */
+    --foreground: 0 0% 17%; /* Charcoal */
+
+    --card: 36 33% 97%;
+    --card-foreground: 0 0% 17%;
+
+    --popover: 36 33% 97%;
+    --popover-foreground: 0 0% 17%;
+
+    --primary: 0 26% 76%; /* Rose */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 150 9% 67%; /* Sage */
+    --secondary-foreground: 0 0% 17%;
+
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 150 9% 67%;
+    --accent-foreground: 0 0% 17%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 26% 76%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 36 33% 97%;
+    --sidebar-foreground: 0 0% 17%;
+    --sidebar-primary: 0 26% 76%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 9% 75%;
+    --sidebar-accent-foreground: 0 0% 17%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 0 26% 76%;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 36 33% 97%;
+
+    --card: 0 0% 9%;
+    --card-foreground: 36 33% 97%;
+
+    --popover: 0 0% 9%;
+    --popover-foreground: 36 33% 97%;
+
+    --primary: 0 26% 76%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 150 9% 67%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 63%;
+
+    --accent: 150 9% 67%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 36 33% 97%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 26% 76%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/40 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/60;
+  }
+}
+
+@layer components {
+  .page-transition-container {
+    @apply animate-page-in;
+  }
+  
+  .btn-rose {
+    @apply bg-rose text-white py-3 px-6 rounded-md hover:bg-rose-dark transition-all duration-300 inline-flex items-center justify-center gap-2 font-medium;
+  }
+
+  .btn-outline {
+    @apply border border-rose text-rose py-3 px-6 rounded-md hover:bg-rose/10 transition-all duration-300 inline-flex items-center justify-center gap-2 font-medium;
+  }
+  
+  .category-card {
+    @apply relative overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all duration-300 bg-white;
+  }
+  
+  .category-card-img {
+    @apply aspect-[4/3] object-cover w-full transition-transform duration-500;
+  }
+  
+  .category-card:hover .category-card-img {
+    @apply scale-105;
+  }
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Libre Baskerville';
+  src: url('https://fonts.gstatic.com/s/librebaskerville/v14/kmKnZrc3Hgbbcjq75U4uslyuy4kn0qNZaxM.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
