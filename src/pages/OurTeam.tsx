@@ -11,13 +11,13 @@ const OurTeam = () => {
     {
       name: "Emma Johnson",
       role: "Lead Wedding Planner",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+      image: "/images/team1/480435759_950104967254541_7573252509708948305_n.jpg",
       bio: "With over 10 years of experience planning luxury weddings, Emma brings creativity and precision to every event she coordinates."
     },
     {
       name: "Michael Chen",
       role: "Design Director",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+      image: "/images/team2/480152411_947481457516892_874407956309432535_n.jpg",
       bio: "Michael's background in interior design gives him a unique eye for creating stunning wedding aesthetics that wow both couples and guests."
     },
     {

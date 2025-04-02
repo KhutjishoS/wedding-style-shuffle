@@ -57,7 +57,7 @@ const Photography = () => {
                     <CheckCircle className="text-sage-dark" size={20} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-medium mb-2">Wedding Day Coverage</h3>
+                    <h3 className="text-xl font-medium mb-2">Event Day Coverage photography</h3>
                     <p className="text-charcoal/70">
                       Our photographers capture every precious moment, from getting ready to the last dance.
                     </p>

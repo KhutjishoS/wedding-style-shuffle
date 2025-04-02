@@ -28,10 +28,10 @@ const Footer = () => {
               attention to detail, and personalized service.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-white/50 hover:text-rose transition-colors duration-300">
+              <a href="http://Facebook.com/abnerexclusive" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-rose transition-colors duration-300">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="text-white/50 hover:text-rose transition-colors duration-300">
+              <a href="http://Instagram.com/abnerexclusive" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-rose transition-colors duration-300">
                 <Instagram size={20} />
               </a>
               <a href="#" className="text-white/50 hover:text-rose transition-colors duration-300">
