@@ -2,9 +2,8 @@ import { ArrowDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const images = [
-  'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=2070&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=2070&auto=format&fit=crop',
+  '/images/home/476345982_943411601257211_2129830340850040033_n.jpg',
+  '/images/home/476620103_944198907845147_1097655687571343343_n.jpg'
 ];
 
 const Hero = () => {
@@ -52,12 +51,14 @@ const Hero = () => {
           Crafting Memorable Event Experience
         </span>
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-medium text-white mb-6 opacity-0 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-          Your Perfect Day <br className="hidden md:block" />
-          <span className="text-rose-light">Begins Here</span>
+          Your Perfect Event <br className="hidden md:block" />
+          <span className="text-rose-light">Starts Here</span>
         </h1>
         <p className="text-white/90 mb-8 max-w-2xl mx-auto text-lg md:text-xl opacity-0 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
-          From enchanting venues to exceptional services, we curate every element 
-          to transform your vision into an exquisite celebration of love.
+          From exceptional service to premium rentals, we bring every detail of your vision to life. 
+          Crafting unforgettable celebrations for any special occasion. With luxury tents, stylish chairs, 
+          and everything you need for a flawless event, we're here to make your special day truly unforgettable. 
+          Let's plan something magical together.
         </p>
       </div>
       

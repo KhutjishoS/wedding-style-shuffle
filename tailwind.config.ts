@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -134,8 +133,20 @@ export default {
 				'fade-in': 'fade-in 0.5s ease-out forwards',
 				'subtle-float': 'subtle-float 5s ease-in-out infinite',
 				'page-in': 'page-in 0.5s ease-out forwards'
-			}
+			},
+			textShadow: {
+				'md': '0 2px 4px rgba(0,0,0,0.5)',
+			},
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		function({ addUtilities }) {
+			addUtilities({
+				'.text-shadow-md': {
+					'text-shadow': '0 2px 4px rgba(0,0,0,0.5)',
+				},
+			})
+		},
+		require("tailwindcss-animate"),
+	],
 } satisfies Config;

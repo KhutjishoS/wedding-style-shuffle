@@ -49,10 +49,10 @@ const Testimonials = () => {
             Testimonials
           </span>
           <h2 className="text-3xl md:text-4xl font-serif mb-4">
-            Love Stories From Our Couples
+            Event Success: Real Stories, Real Celebrations
           </h2>
           <p className="text-charcoal/70 max-w-2xl mx-auto">
-            Hear what our clients have to say about their event experiences.
+            Hear from our clients about how we delivered exceptional service and premium rentals for all types of events, from weddings and corporate gatherings to personal celebrations. Their testimonials showcase how we brought their event visions to life with unforgettable experiences.
           </p>
         </AnimatedSection>
 

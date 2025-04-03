@@ -7,6 +7,32 @@ import { Textarea } from "../components/ui/textarea";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 
+const guestRanges = [
+  "Less than 50",
+  "50-80",
+  "81-100",
+  "101-120",
+  "121-150",
+  "151-200",
+  "201-250",
+  "251-300",
+  "301-350",
+  "351-450",
+  "451+"
+];
+
+const eventTypes = [
+  "Wedding",
+  "Party",
+  "Birthday",
+  "Corporate Event",
+  "Baby Shower",
+  "Conference",
+  "Year End Function",
+  "Bridal Shower",
+  "Memorial Service"
+];
+
 const Consultation = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -16,6 +42,7 @@ const Consultation = () => {
     date: "",
     time: "",
     guests: "",
+    eventType: "",
     message: ""
   });
 
@@ -29,7 +56,7 @@ const Consultation = () => {
     navigate("/gallery"); // Redirect back to gallery after submission
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -46,10 +73,10 @@ const Consultation = () => {
               Book a Consultation
             </span>
             <h1 className="text-4xl md:text-5xl font-serif mb-4">
-              Schedule Your Wedding Consultation
+              Schedule Your Event Consultation
             </h1>
             <p className="text-charcoal/70">
-              Let's discuss your vision and create the perfect wedding experience together.
+              Let's discuss your vision and create the perfect event experience together.
             </p>
           </AnimatedSection>
 
@@ -101,23 +128,48 @@ const Consultation = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="guests" className="text-sm font-medium text-charcoal">
-                    Expected Guest Count
+                  <label htmlFor="eventType" className="text-sm font-medium text-charcoal">
+                    Event Type
                   </label>
-                  <Input
-                    id="guests"
-                    name="guests"
-                    type="number"
-                    min="1"
-                    value={formData.guests}
+                  <select
+                    id="eventType"
+                    name="eventType"
+                    value={formData.eventType}
                     onChange={handleChange}
                     required
-                    className="border-rose/20 focus:border-rose focus:ring-rose"
-                  />
+                    className="w-full rounded-md border border-rose/20 focus:border-rose focus:ring-rose py-2 px-3 text-charcoal"
+                  >
+                    <option value="">Select event type</option>
+                    {eventTypes.map((type) => (
+                      <option key={type} value={type}>
+                        {type}
+                      </option>
+                    ))}
+                  </select>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="guests" className="text-sm font-medium text-charcoal">
+                    Expected Guest Count
+                  </label>
+                  <select
+                    id="guests"
+                    name="guests"
+                    value={formData.guests}
+                    onChange={handleChange}
+                    required
+                    className="w-full rounded-md border border-rose/20 focus:border-rose focus:ring-rose py-2 px-3 text-charcoal"
+                  >
+                    <option value="">Select guest count range</option>
+                    {guestRanges.map((range) => (
+                      <option key={range} value={range}>
+                        {range}
+                      </option>
+                    ))}
+                  </select>
+                </div>
                 <div className="space-y-2">
                   <label htmlFor="date" className="text-sm font-medium text-charcoal">
                     Preferred Date
@@ -132,6 +184,9 @@ const Consultation = () => {
                     className="border-rose/20 focus:border-rose focus:ring-rose"
                   />
                 </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="time" className="text-sm font-medium text-charcoal">
                     Preferred Time
