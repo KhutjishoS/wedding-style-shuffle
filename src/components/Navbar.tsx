@@ -7,7 +7,9 @@ import { useCart } from '@/hooks/useCart';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [cartAnimation, setCartAnimation] = useState(false);
   const { items: cartItems } = useCart();
+  const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +21,13 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Add animation when cart items or quantities change
+  useEffect(() => {
+    setCartAnimation(true);
+    const timeout = setTimeout(() => setCartAnimation(false), 300);
+    return () => clearTimeout(timeout);
+  }, [cartItemCount]); // Watch cartItemCount instead of cartItems.length
+
   const toggleMenu = () => setIsOpen(!isOpen);
   
   const navLinks = [
@@ -29,8 +38,6 @@ const Navbar = () => {
     { name: 'Our Team', href: '/our-team' },
     { name: 'Contact', href: '/contact' },
   ];
-
-  const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <header
@@ -59,28 +66,31 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-charcoal hover:text-rose transition-colors font-medium text-shadow-sm">
-            Home
-          </Link>
-          <Link to="/planning" className="text-charcoal hover:text-rose transition-colors font-medium text-shadow-sm">
-            Planning
-          </Link>
-          <Link to="/our-approach" className="text-charcoal hover:text-rose transition-colors font-medium text-shadow-sm">
-            Our Approach
-          </Link>
-          <Link to="/offerings" className="text-charcoal hover:text-rose transition-colors font-medium text-shadow-sm">
-            Offerings
-          </Link>
-          <Link to="/our-team" className="text-charcoal hover:text-rose transition-colors font-medium text-shadow-sm">
-            Our Team
-          </Link>
-          <Link to="/contact" className="text-charcoal hover:text-rose transition-colors font-medium text-shadow-sm">
-            Contact
-          </Link>
-          <Link to="/cart" className="relative">
-            <ShoppingCart size={20} className="text-charcoal hover:text-rose transition-colors duration-300 text-shadow-md" />
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              to={link.href}
+              className="text-charcoal hover:text-rose transition-colors font-medium text-shadow-sm"
+            >
+              {link.name}
+            </Link>
+          ))}
+          <Link to="/cart" className="relative group">
+            <ShoppingCart 
+              size={20} 
+              className={cn(
+                "transition-all duration-300 text-shadow-md transform",
+                cartAnimation ? "scale-125" : "",
+                cartItemCount > 0 ? "text-rose" : "text-charcoal group-hover:text-rose"
+              )}
+            />
             {cartItemCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-rose text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+              <span 
+                className={cn(
+                  "absolute -top-2 -right-2 bg-rose text-white text-xs w-5 h-5 rounded-full flex items-center justify-center transition-all duration-300",
+                  cartAnimation ? "scale-125" : ""
+                )}
+              >
                 {cartItemCount}
               </span>
             )}
@@ -121,10 +131,27 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <Link to="/cart" className="flex items-center text-charcoal hover:text-rose transition-colors duration-300 text-lg font-bold">
+            <Link 
+              to="/cart" 
+              className="flex items-center text-charcoal hover:text-rose transition-colors duration-300 text-lg font-bold group"
+              onClick={toggleMenu}
+            >
+              <ShoppingCart 
+                size={24} 
+                className={cn(
+                  "transition-all duration-300 mr-2",
+                  cartAnimation ? "scale-125" : "",
+                  cartItemCount > 0 ? "text-rose" : "text-charcoal group-hover:text-rose"
+                )}
+              />
               Cart
               {cartItemCount > 0 && (
-                <span className="ml-2 bg-rose text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                <span 
+                  className={cn(
+                    "ml-2 bg-rose text-white text-xs w-5 h-5 rounded-full flex items-center justify-center transition-all duration-300",
+                    cartAnimation ? "scale-125" : ""
+                  )}
+                >
                   {cartItemCount}
                 </span>
               )}
