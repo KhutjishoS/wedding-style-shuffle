@@ -34,21 +34,34 @@ export function useCart() {
     setItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
-  const updateQuantity = (id: string, quantity: number) => {
-    if (quantity < 1) return;
-    setItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id ? { ...item, quantity } : item
-      )
-    );
+  const updateQuantity = (id: string, newQuantity: number) => {
+    if (newQuantity < 1) {
+      removeItem(id);
+      return;
+    }
+    
+    setItems((prevItems) => {
+      const itemExists = prevItems.some(item => item.id === id);
+      if (!itemExists) return prevItems;
+
+      return prevItems.map((item) =>
+        item.id === id ? { ...item, quantity: newQuantity } : item
+      );
+    });
   };
 
   const clearCart = () => {
     setItems([]);
+    localStorage.removeItem('cart');
   };
 
   const getTotal = () => {
     return items.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
+  const getItemQuantity = (id: string) => {
+    const item = items.find(item => item.id === id);
+    return item ? item.quantity : 0;
   };
 
   return {
@@ -58,5 +71,6 @@ export function useCart() {
     updateQuantity,
     clearCart,
     getTotal,
+    getItemQuantity,
   };
 } 

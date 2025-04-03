@@ -34,7 +34,7 @@ const OurTeam = () => {
               Meet the Event Experts
             </h1>
             <p className="text-charcoal/70 max-w-3xl mx-auto">
-              Our passionate team of wedding professionals is dedicated to creating exceptional experiences for every couple.
+              
             </p>
           </AnimatedSection>
         </div>

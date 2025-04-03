@@ -2,7 +2,6 @@ import { ArrowDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const images = [
-  '/images/home/476345982_943411601257211_2129830340850040033_n.jpg',
   '/images/home/476620103_944198907845147_1097655687571343343_n.jpg'
 ];
 
@@ -26,24 +25,15 @@ const Hero = () => {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Images */}
-      {images.map((img, index) => (
-        <div
-          key={img}
-          className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
-          style={{
-            opacity: currentImage === index ? 1 : 0,
-            zIndex: 0,
-          }}
-        >
-          <div className="absolute inset-0 bg-black/30 z-10" />
-          <img
-            src={img}
-            alt="Wedding"
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
-      ))}
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-black/30 z-10" />
+        <img
+          src={images[0]}
+          alt="Event"
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
 
       {/* Content */}
       <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
