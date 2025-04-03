@@ -7,42 +7,18 @@ const OurTeam = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const team = [
+  const teamMembers = [
     {
-      name: "Emma Johnson",
-      role: "Lead Wedding Planner",
+      name: "Madam Abner Exclusive",
+      role: "Our Founder",
       image: "/images/team1/480435759_950104967254541_7573252509708948305_n.jpg",
-      bio: "With over 10 years of experience planning luxury weddings, Emma brings creativity and precision to every event she coordinates."
+      bio: "With years of experience in event design and coordination, Madam Abner brings creativity and precision to every project. Her passion for creating unforgettable moments and keen attention to detail ensure that each event is unique and flawless."
     },
     {
-      name: "Michael Chen",
-      role: "Design Director",
+      name: "Madam Abner Exclusive",
+      role: "Our Founder",
       image: "/images/team2/480152411_947481457516892_874407956309432535_n.jpg",
-      bio: "Michael's background in interior design gives him a unique eye for creating stunning wedding aesthetics that wow both couples and guests."
-    },
-    {
-      name: "Sophia Rodriguez",
-      role: "Vendor Relations Manager",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-      bio: "Sophia's extensive network of premium vendors ensures that every aspect of your wedding is executed to the highest standard."
-    },
-    {
-      name: "James Wilson",
-      role: "Day-of Coordinator",
-      image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-      bio: "James' attention to detail and calm demeanor make him the perfect person to ensure your wedding day runs smoothly."
-    },
-    {
-      name: "Olivia Thompson",
-      role: "Client Experience Manager",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-      bio: "Olivia ensures that every couple receives personalized attention throughout their wedding planning journey."
-    },
-    {
-      name: "Daniel Kim",
-      role: "Logistics Coordinator",
-      image: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-      bio: "Daniel's background in event management helps him coordinate complex wedding logistics with ease and efficiency."
+      bio: "With years of experience in event design and coordination, Madam Abner brings creativity and precision to every project. Her passion for creating unforgettable moments and keen attention to detail ensure that each event is unique and flawless."
     }
   ];
 
@@ -66,23 +42,36 @@ const OurTeam = () => {
       
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {team.map((member, index) => (
-              <AnimatedSection key={member.name} delay={index * 100}>
-                <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-serif mb-2">Madam Abner Exclusive</h3>
+            <p className="text-rose-light text-lg mb-4">Our Founder</p>
+            <p className="text-charcoal/70 text-base leading-relaxed max-w-3xl mx-auto mb-8">
+              With years of experience in event design and coordination, Madam Abner brings creativity and precision to every project. Her passion for creating unforgettable moments and keen attention to detail ensure that each event is unique and flawless.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-5xl mx-auto">
+            <AnimatedSection delay={100}>
+              <div className="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-102 transition-transform duration-300">
+                <div className="relative">
                   <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-64 object-cover"
+                    src="/images/team1/480435759_950104967254541_7573252509708948305_n.jpg"
+                    alt="Madam Abner Exclusive"
+                    className="w-full h-[500px] object-cover object-center"
                   />
-                  <div className="p-6">
-                    <h3 className="text-xl font-serif mb-1">{member.name}</h3>
-                    <p className="text-rose mb-3">{member.role}</p>
-                    <p className="text-charcoal/70">{member.bio}</p>
+                </div>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection delay={200}>
+              <div className="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-102 transition-transform duration-300">
+                <div className="relative">
+                  <img
+                    src="/images/team2/480152411_947481457516892_874407956309432535_n.jpg"
+                    alt="Madam Abner Exclusive"
+                    className="w-full h-[500px] object-cover object-center"
+                  />
                   </div>
                 </div>
               </AnimatedSection>
-            ))}
           </div>
         </div>
       </section>

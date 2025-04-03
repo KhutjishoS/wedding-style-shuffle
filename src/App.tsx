@@ -17,7 +17,6 @@ import Consultation from "./pages/Consultation";
 import Venues from "./pages/Venues";
 import Photography from "./pages/Photography";
 import Catering from "./pages/Catering";
-import FixedConsultationButton from "./components/FixedConsultationButton";
 
 const queryClient = new QueryClient();
 
@@ -44,7 +43,6 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <FixedConsultationButton />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

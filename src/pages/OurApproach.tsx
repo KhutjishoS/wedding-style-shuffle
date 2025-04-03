@@ -115,9 +115,9 @@ const OurApproach = () => {
                 <div className="w-16 h-16 bg-sage rounded-full flex items-center justify-center mx-auto mb-6 text-charcoal font-bold text-xl">
                   3
                 </div>
-                <h3 className="text-xl font-serif mb-3">Curation</h3>
+                <h3 className="text-xl font-serif mb-3">Venue & Vendor Selection</h3>
                 <p className="text-white/80">
-                  We select the perfect venues and vendors that align with your vision and work within your budget.
+                  We carefully select the perfect venues and partners that align with your vision while staying within your budget.
                 </p>
               </div>
             </AnimatedSection>

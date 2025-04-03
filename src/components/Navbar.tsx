@@ -58,55 +58,70 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              className="text-charcoal/70 hover:text-rose transition-colors duration-300"
-            >
-              {link.name}
-            </Link>
-          ))}
+        <div className="hidden md:flex items-center space-x-8">
+          <Link to="/" className="text-charcoal hover:text-rose transition-colors font-medium text-shadow-sm">
+            Home
+          </Link>
+          <Link to="/planning" className="text-charcoal hover:text-rose transition-colors font-medium text-shadow-sm">
+            Planning
+          </Link>
+          <Link to="/our-approach" className="text-charcoal hover:text-rose transition-colors font-medium text-shadow-sm">
+            Our Approach
+          </Link>
+          <Link to="/offerings" className="text-charcoal hover:text-rose transition-colors font-medium text-shadow-sm">
+            Offerings
+          </Link>
+          <Link to="/our-team" className="text-charcoal hover:text-rose transition-colors font-medium text-shadow-sm">
+            Our Team
+          </Link>
+          <Link to="/contact" className="text-charcoal hover:text-rose transition-colors font-medium text-shadow-sm">
+            Contact
+          </Link>
           <Link to="/cart" className="relative">
-            <ShoppingCart size={20} className="text-charcoal/70 hover:text-rose transition-colors duration-300" />
-              {cartItemCount > 0 && (
+            <ShoppingCart size={20} className="text-charcoal hover:text-rose transition-colors duration-300 text-shadow-md" />
+            {cartItemCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-rose text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                  {cartItemCount}
-                </span>
-              )}
-            </Link>
-        </nav>
+                {cartItemCount}
+              </span>
+            )}
+          </Link>
+          <Link 
+            to="/consultation" 
+            className="bg-rose text-white px-8 py-2.5 rounded-full hover:bg-rose/90 transition-all duration-300 font-semibold text-shadow-md hover:scale-105 hover:shadow-lg"
+          >
+            Enquire Now
+          </Link>
+        </div>
 
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMenu}
-          className="md:hidden relative z-10 text-charcoal/70 hover:text-rose transition-colors duration-300"
+          className="md:hidden relative z-10 text-charcoal hover:text-rose transition-colors duration-300 text-shadow-md"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile Navigation */}
-        <div
-          className={cn(
+      <div
+        className={cn(
           'fixed inset-0 bg-cream transform transition-transform duration-300 ease-in-out md:hidden',
           isOpen ? 'translate-x-0' : 'translate-x-full'
-          )}
-        >
+        )}
+      >
         <div className="pt-20 px-4">
           <nav className="flex flex-col space-y-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className="text-charcoal/70 hover:text-rose transition-colors duration-300 text-lg"
+                className="text-charcoal hover:text-rose transition-colors duration-300 text-lg font-bold"
                 onClick={toggleMenu}
               >
                 {link.name}
               </Link>
             ))}
-            <Link to="/cart" className="flex items-center text-charcoal/70 hover:text-rose transition-colors duration-300 text-lg">
+            <Link to="/cart" className="flex items-center text-charcoal hover:text-rose transition-colors duration-300 text-lg font-bold">
               Cart
               {cartItemCount > 0 && (
                 <span className="ml-2 bg-rose text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">

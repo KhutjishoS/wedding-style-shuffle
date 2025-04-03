@@ -775,7 +775,7 @@ const Gallery = () => {
     }
   ];
 
-  const categories = ["All", "Ceremonies", "Corporate Events", "Wedding Decor", "Couples", "Details", "BirthDay"];
+  const categories = ["All", "Ceremonies", "Corporate Events", "Wedding Decor", "Birthday"];
 
   const filteredImages = galleryImages.filter(item => {
     const matchesCategory = selectedCategory === "All" || item.category === selectedCategory;
@@ -828,19 +828,56 @@ const Gallery = () => {
           </AnimatedSection>
 
           <AnimatedSection delay={100} className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
+            <button
+              onClick={() => setSelectedCategory("All")}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                selectedCategory === "All"
+                  ? "bg-rose text-white"
+                  : "bg-white text-charcoal hover:bg-rose/5"
+              }`}
+            >
+              All
+            </button>
+            <button
+              onClick={() => setSelectedCategory("Ceremonies")}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                selectedCategory === "Ceremonies"
+                  ? "bg-rose text-white"
+                  : "bg-white text-charcoal hover:bg-rose/5"
+              }`}
+            >
+              Ceremonies
+            </button>
+            <button
+              onClick={() => setSelectedCategory("Corporate Events")}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                selectedCategory === "Corporate Events"
+                  ? "bg-rose text-white"
+                  : "bg-white text-charcoal hover:bg-rose/5"
+              }`}
+            >
+              Corporate Events
+            </button>
+            <button
+              onClick={() => setSelectedCategory("Wedding Decor")}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                selectedCategory === "Wedding Decor"
+                  ? "bg-rose text-white"
+                  : "bg-white text-charcoal hover:bg-rose/5"
+              }`}
+            >
+              Wedding Decor
+            </button>
               <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full border transition-colors duration-300 ${
-                  selectedCategory === category
-                    ? "bg-rose text-white border-rose"
-                    : "border-rose/20 hover:bg-rose hover:text-white"
-                }`}
-              >
-                {category}
+              onClick={() => setSelectedCategory("Birthday")}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                selectedCategory === "Birthday"
+                  ? "bg-rose text-white"
+                  : "bg-white text-charcoal hover:bg-rose/5"
+              }`}
+            >
+              Birthday
               </button>
-            ))}
           </AnimatedSection>
         </div>
       </section>
@@ -850,18 +887,18 @@ const Gallery = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredImages.map((item, index) => (
               <AnimatedSection key={item.id} delay={index * 50}>
-                <div className="overflow-hidden rounded-lg shadow-sm group cursor-pointer">
-                  <div className="relative overflow-hidden">
+                <div className="overflow-hidden rounded-lg shadow-sm">
+                  <div className="relative">
                     {item.images ? (
                       <ImageCarousel images={item.images} />
                     ) : (
                     <img 
                       src={item.image} 
                       alt={item.title} 
-                      className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="w-full h-80 object-cover"
                     />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
                       <div className="absolute bottom-0 left-0 p-6 text-white w-full">
                         <p className="text-sm font-medium text-rose/90 mb-1">{item.category}</p>
                         <h3 className="text-xl font-serif mb-2">{item.title}</h3>
