@@ -24,9 +24,9 @@ const OurTeam = () => {
 
   return (
     <div className="page-transition-container">
-      <section className="py-20 px-4 bg-rose/5">
+      <section className="pt-24 pb-8 px-4 bg-rose/5">
         <div className="max-w-7xl mx-auto">
-          <AnimatedSection className="text-center mb-12">
+          <AnimatedSection className="text-center mb-4">
             <span className="inline-block py-1 px-3 rounded-full bg-rose/10 text-rose text-xs font-medium tracking-wide mb-3">
               Our Team
             </span>
@@ -40,9 +40,9 @@ const OurTeam = () => {
         </div>
       </section>
       
-      <section className="py-16 px-4">
+      <section className="pt-4 pb-8 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h3 className="text-3xl font-serif mb-2">Madam Abner Exclusive</h3>
             <p className="text-rose-light text-lg mb-4">Our Founder</p>
             <p className="text-charcoal/70 text-base leading-relaxed max-w-3xl mx-auto mb-8">

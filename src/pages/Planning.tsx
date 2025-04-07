@@ -31,7 +31,7 @@ const Planning = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <AnimatedSection>
               <img
-                src="https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                src="/images/plann/481073998_950781120520259_2387227607360948516_n.jpg"
                 alt="Wedding Planning"
                 className="rounded-lg shadow-lg w-full h-[500px] object-cover"
               />
@@ -170,7 +170,7 @@ const Planning = () => {
       </section>
       
       <section className="py-16 px-4 bg-cover bg-center text-white relative" style={{ 
-        backgroundImage: "url('https://images.unsplash.com/photo-1469371670807-013ccf25f16a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')" 
+        backgroundImage: "url('/images/plann/Plan2.jpg')" 
       }}>
         <div className="absolute inset-0 bg-charcoal/60"></div>
         <div className="max-w-3xl mx-auto text-center relative z-10">
