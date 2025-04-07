@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 interface CartItem {
   id: string;
@@ -8,17 +8,44 @@ interface CartItem {
   quantity: number;
 }
 
+// Create a custom event for cart updates
+const CART_UPDATE_EVENT = 'cartUpdate';
+
 export function useCart() {
   const [items, setItems] = useState<CartItem[]>(() => {
-    const savedItems = localStorage.getItem('cart');
-    return savedItems ? JSON.parse(savedItems) : [];
+    try {
+      const savedItems = localStorage.getItem('cart');
+      return savedItems ? JSON.parse(savedItems) : [];
+    } catch (error) {
+      console.error('Error loading cart from localStorage:', error);
+      return [];
+    }
   });
 
+  // Save to localStorage and dispatch event whenever items change
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(items));
+    try {
+      localStorage.setItem('cart', JSON.stringify(items));
+      // Dispatch custom event when cart updates
+      window.dispatchEvent(new CustomEvent(CART_UPDATE_EVENT, { detail: items }));
+    } catch (error) {
+      console.error('Error saving cart to localStorage:', error);
+    }
   }, [items]);
 
-  const addItem = (item: Omit<CartItem, 'quantity'>) => {
+  // Listen for cart updates from other components
+  useEffect(() => {
+    const handleCartUpdate = (event: CustomEvent<CartItem[]>) => {
+      setItems(event.detail);
+    };
+
+    window.addEventListener(CART_UPDATE_EVENT, handleCartUpdate as EventListener);
+    return () => {
+      window.removeEventListener(CART_UPDATE_EVENT, handleCartUpdate as EventListener);
+    };
+  }, []);
+
+  const addItem = useCallback((item: Omit<CartItem, 'quantity'>) => {
     setItems((prevItems) => {
       const existingItem = prevItems.find((i) => i.id === item.id);
       if (existingItem) {
@@ -28,13 +55,13 @@ export function useCart() {
       }
       return [...prevItems, { ...item, quantity: 1 }];
     });
-  };
+  }, []);
 
-  const removeItem = (id: string) => {
+  const removeItem = useCallback((id: string) => {
     setItems((prevItems) => prevItems.filter((item) => item.id !== id));
-  };
+  }, []);
 
-  const updateQuantity = (id: string, newQuantity: number) => {
+  const updateQuantity = useCallback((id: string, newQuantity: number) => {
     if (newQuantity < 1) {
       removeItem(id);
       return;
@@ -48,21 +75,21 @@ export function useCart() {
         item.id === id ? { ...item, quantity: newQuantity } : item
       );
     });
-  };
+  }, [removeItem]);
 
-  const clearCart = () => {
+  const clearCart = useCallback(() => {
     setItems([]);
     localStorage.removeItem('cart');
-  };
+  }, []);
 
-  const getTotal = () => {
+  const getTotal = useCallback(() => {
     return items.reduce((total, item) => total + item.price * item.quantity, 0);
-  };
+  }, [items]);
 
-  const getItemQuantity = (id: string) => {
+  const getItemQuantity = useCallback((id: string) => {
     const item = items.find(item => item.id === id);
     return item ? item.quantity : 0;
-  };
+  }, [items]);
 
   return {
     items,
