@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardFooter } from './ui/card';
-import { Trash2, Plus, Minus } from 'lucide-react';
+import { Trash2, Plus, Minus, Loader2 } from 'lucide-react';
 
 interface CartItem {
   id: string;
@@ -13,13 +13,16 @@ interface CartItem {
 
 interface CartProps {
   items: CartItem[];
+  isLoading: boolean;
   onRemoveItem: (id: string) => void;
   onUpdateQuantity: (id: string, quantity: number) => void;
   onClearCart: () => void;
   total: number;
 }
 
-export function Cart({ items, onRemoveItem, onUpdateQuantity, onClearCart, total }: CartProps) {
+export function Cart({ items, isLoading, onRemoveItem, onUpdateQuantity, onClearCart, total }: CartProps) {
+  const [updatingItemId, setUpdatingItemId] = useState<string | null>(null);
+
   if (!items || items.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-12 bg-white rounded-lg shadow-sm">
@@ -29,9 +32,14 @@ export function Cart({ items, onRemoveItem, onUpdateQuantity, onClearCart, total
     );
   }
 
-  const handleQuantityUpdate = (id: string, newQuantity: number) => {
+  const handleQuantityUpdate = async (id: string, newQuantity: number) => {
     if (newQuantity >= 1) {
-      onUpdateQuantity(id, newQuantity);
+      setUpdatingItemId(id);
+      try {
+        await onUpdateQuantity(id, newQuantity);
+      } finally {
+        setUpdatingItemId(null);
+      }
     }
   };
 
@@ -43,8 +51,9 @@ export function Cart({ items, onRemoveItem, onUpdateQuantity, onClearCart, total
           variant="outline" 
           onClick={onClearCart}
           className="hover:bg-rose/10 hover:text-rose"
+          disabled={isLoading}
         >
-          Clear Cart
+          {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Clear Cart'}
         </Button>
       </div>
       
@@ -64,6 +73,7 @@ export function Cart({ items, onRemoveItem, onUpdateQuantity, onClearCart, total
                     size="icon"
                     className="absolute -top-2 -right-2 shadow-md hover:bg-rose"
                     onClick={() => onRemoveItem(item.id)}
+                    disabled={isLoading}
                   >
                     <Trash2 className="h-4 w-4" />
                   </Button>
@@ -77,9 +87,13 @@ export function Cart({ items, onRemoveItem, onUpdateQuantity, onClearCart, total
                       size="icon"
                       className="hover:bg-rose/10 hover:text-rose"
                       onClick={() => handleQuantityUpdate(item.id, Math.max(1, item.quantity - 1))}
-                      disabled={item.quantity <= 1}
+                      disabled={item.quantity <= 1 || isLoading || updatingItemId === item.id}
                     >
-                      <Minus className="h-4 w-4" />
+                      {updatingItemId === item.id ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        <Minus className="h-4 w-4" />
+                      )}
                     </Button>
                     <input
                       type="number"
@@ -92,14 +106,20 @@ export function Cart({ items, onRemoveItem, onUpdateQuantity, onClearCart, total
                         }
                       }}
                       className="w-16 text-center font-medium border rounded-md py-1"
+                      disabled={isLoading || updatingItemId === item.id}
                     />
                     <Button
                       variant="outline"
                       size="icon"
                       className="hover:bg-rose/10 hover:text-rose"
                       onClick={() => handleQuantityUpdate(item.id, item.quantity + 1)}
+                      disabled={isLoading || updatingItemId === item.id}
                     >
-                      <Plus className="h-4 w-4" />
+                      {updatingItemId === item.id ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        <Plus className="h-4 w-4" />
+                      )}
                     </Button>
                   </div>
                 </div>
@@ -125,8 +145,13 @@ export function Cart({ items, onRemoveItem, onUpdateQuantity, onClearCart, total
           <Button 
             className="w-full bg-rose hover:bg-rose-dark text-white"
             size="lg"
+            disabled={isLoading}
           >
-            Proceed to Checkout
+            {isLoading ? (
+              <Loader2 className="h-6 w-6 animate-spin" />
+            ) : (
+              'Proceed to Checkout'
+            )}
           </Button>
         </CardFooter>
       </Card>

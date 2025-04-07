@@ -23,10 +23,12 @@ const Navbar = () => {
 
   // Add animation when cart items or quantities change
   useEffect(() => {
-    setCartAnimation(true);
-    const timeout = setTimeout(() => setCartAnimation(false), 300);
-    return () => clearTimeout(timeout);
-  }, [cartItemCount]); // Watch cartItemCount instead of cartItems.length
+    if (cartItemCount > 0) {
+      setCartAnimation(true);
+      const timeout = setTimeout(() => setCartAnimation(false), 300);
+      return () => clearTimeout(timeout);
+    }
+  }, [cartItemCount]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   
@@ -84,16 +86,15 @@ const Navbar = () => {
                 cartItemCount > 0 ? "text-rose" : "text-charcoal group-hover:text-rose"
               )}
             />
-            {cartItemCount > 0 && (
-              <span 
-                className={cn(
-                  "absolute -top-2 -right-2 bg-rose text-white text-xs w-5 h-5 rounded-full flex items-center justify-center transition-all duration-300",
-                  cartAnimation ? "scale-125" : ""
-                )}
-              >
-                {cartItemCount}
-              </span>
-            )}
+            <span 
+              className={cn(
+                "absolute -top-2 -right-2 bg-rose text-white text-xs w-5 h-5 rounded-full flex items-center justify-center transition-all duration-300",
+                cartAnimation ? "scale-125" : "",
+                cartItemCount === 0 ? "hidden" : ""
+              )}
+            >
+              {cartItemCount}
+            </span>
           </Link>
           <Link 
             to="/consultation" 
@@ -145,16 +146,15 @@ const Navbar = () => {
                 )}
               />
               Cart
-              {cartItemCount > 0 && (
-                <span 
-                  className={cn(
-                    "ml-2 bg-rose text-white text-xs w-5 h-5 rounded-full flex items-center justify-center transition-all duration-300",
-                    cartAnimation ? "scale-125" : ""
-                  )}
-                >
-                  {cartItemCount}
-                </span>
-              )}
+              <span 
+                className={cn(
+                  "ml-2 bg-rose text-white text-xs w-5 h-5 rounded-full flex items-center justify-center transition-all duration-300",
+                  cartAnimation ? "scale-125" : "",
+                  cartItemCount === 0 ? "hidden" : ""
+                )}
+              >
+                {cartItemCount}
+              </span>
             </Link>
           </nav>
         </div>

@@ -117,7 +117,7 @@ export function ItemDetailsModal({
             >
               <img
                 src={images[currentImageIndex]}
-                alt={item.name}
+              alt={item.name}
                 className={`object-contain w-full h-full transition-transform duration-300 ${
                   isZoomed ? 'cursor-move' : 'cursor-zoom-in'
                 }`}
@@ -165,14 +165,14 @@ export function ItemDetailsModal({
                 >
                   {isFullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
                 </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
+            <Button
+              variant="ghost"
+              size="icon"
                   className="bg-white/90 hover:bg-white"
-                  onClick={onClose}
-                >
-                  <X className="h-4 w-4" />
-                </Button>
+              onClick={onClose}
+            >
+              <X className="h-4 w-4" />
+            </Button>
               </div>
               <Button
                 variant="ghost"
@@ -238,14 +238,14 @@ export function ItemDetailsModal({
                 Add to Cart
               </Button>
               {onAddToWishlist && (
-                <Button
-                  variant={isInWishlist ? "default" : "outline"}
-                  className="flex-1"
-                  onClick={onAddToWishlist}
-                >
-                  <Heart className="w-4 h-4 mr-2" />
-                  {isInWishlist ? "Wishlisted" : "Wishlist"}
-                </Button>
+              <Button
+                variant={isInWishlist ? "default" : "outline"}
+                className="flex-1"
+                onClick={onAddToWishlist}
+              >
+                <Heart className="w-4 h-4 mr-2" />
+                {isInWishlist ? "Wishlisted" : "Wishlist"}
+              </Button>
               )}
             </div>
           </div>
