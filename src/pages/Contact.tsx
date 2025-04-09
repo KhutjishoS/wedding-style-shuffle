@@ -59,51 +59,69 @@ const Contact = () => {
                 
                 <div className="space-y-8">
                   <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 bg-rose/10 rounded-full flex items-center justify-center">
-                      <MapPin className="text-rose" size={20} />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-medium mb-1">Visit Our Office</h4>
-                      <p className="text-charcoal/70">
-                        369 Panorama Road<br />
-                        The Reeds<br />
-                        Centurion
-                      </p>
-                    </div>
+                    <a 
+                      href="https://www.google.com/maps/search/?api=1&query=369+Panorama+Road,+The+Reeds,+Centurion"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex gap-4 group hover:cursor-pointer"
+                    >
+                      <div className="flex-shrink-0 w-10 h-10 bg-rose/10 rounded-full flex items-center justify-center group-hover:bg-rose/20 transition-colors">
+                        <MapPin className="text-rose group-hover:scale-110 transition-transform" size={20} />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-medium mb-1 group-hover:text-rose transition-colors">Visit Our Office</h4>
+                        <p className="text-charcoal/70">
+                          369 Panorama Road<br />
+                          The Reeds<br />
+                          Centurion
+                        </p>
+                      </div>
+                    </a>
                   </div>
                   
                   <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 bg-rose/10 rounded-full flex items-center justify-center">
-                      <Mail className="text-rose" size={20} />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-medium mb-1">Email Us</h4>
-                      <p className="text-charcoal/70">
-                        hello@abnerexclusive.co.za
-                      </p>
-                    </div>
+                    <a 
+                      href="mailto:hello@abnerexclusive.co.za"
+                      className="flex gap-4 group hover:cursor-pointer"
+                    >
+                      <div className="flex-shrink-0 w-10 h-10 bg-rose/10 rounded-full flex items-center justify-center group-hover:bg-rose/20 transition-colors">
+                        <Mail className="text-rose group-hover:scale-110 transition-transform" size={20} />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-medium mb-1 group-hover:text-rose transition-colors">Email Us</h4>
+                        <p className="text-charcoal/70">
+                          hello@abnerexclusive.co.za
+                        </p>
+                      </div>
+                    </a>
                   </div>
                   
                   <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 bg-rose/10 rounded-full flex items-center justify-center">
-                      <Phone className="text-rose" size={20} />
+                    <div className="flex-shrink-0 w-10 h-10 bg-rose/10 rounded-full flex items-center justify-center mt-1">
+                      <Phone className="text-rose group-hover:scale-110 transition-transform" size={20} />
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <h4 className="text-lg font-medium mb-1">Call Us</h4>
-                      <p className="text-charcoal/70">
-                        074 417 2828<br />
-                        <div className="flex items-center gap-2 mt-1">
-                          <Clock size={14} className="text-charcoal/50" />
+                      <p className="mb-2">
+                        <a 
+                          href="tel:+27744172828"
+                          className="text-charcoal/70 hover:text-rose transition-colors group"
+                        >
+                          (+27 ) 74 417 2828
+                        </a>
+                      </p>
+                      <div className="text-sm text-charcoal/70 space-y-1">
+                        <div className="flex items-center gap-2">
+                          <Clock size={14} className="flex-shrink-0" />
                           <span>Monday-Friday: 9am - 6pm</span>
-                          <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${
-                            isOpen 
-                              ? "bg-green-100 text-green-800" 
-                              : "bg-red-100 text-red-800"
-                          }`}>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-[14px] flex-shrink-0"></div>
+                          <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${isOpen ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}>
                             {isOpen ? "Open Now" : "Closed"}
                           </span>
                         </div>
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -129,6 +147,16 @@ const Contact = () => {
                     >
                       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12,2.16c3.2,0,3.58,0,4.85.07,3.25.15,4.77,1.69,4.92,4.92.06,1.27.07,1.65.07,4.85s0,3.58-.07,4.85c-.15,3.23-1.69,4.77-4.92,4.92-1.27.06-1.65.07-4.85.07s-3.58,0-4.85-.07c-3.25-.15-4.77-1.69-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s0-3.58.07-4.85C2.38,3.92,3.92,2.38,7.15,2.23,8.42,2.18,8.8,2.16,12,2.16ZM12,0C8.74,0,8.33,0,7.05.07c-4.35.2-6.78,2.62-6.98,6.98C0,8.33,0,8.74,0,12s0,3.67.07,4.95c.2,4.36,2.62,6.78,6.98,6.98C8.33,24,8.74,24,12,24s3.67,0,4.95-.07c4.35-.2,6.78-2.62,6.98-6.98C24,15.67,24,15.26,24,12s0-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67,0,15.26,0,12,0Zm0,5.84A6.16,6.16,0,1,0,18.16,12,6.16,6.16,0,0,0,12,5.84ZM12,16a4,4,0,1,1,4-4A4,4,0,0,1,12,16ZM18.41,4.15a1.44,1.44,0,1,0,1.44,1.44A1.44,1.44,0,0,0,18.41,4.15Z"/>
+                      </svg>
+                    </a>
+                    <a
+                      href="https://www.tiktok.com/@abnerexclusive?_t=ZM-8vNKuAKSXp7&_r=1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-charcoal hover:text-rose transition-colors"
+                    >
+                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
                       </svg>
                     </a>
                   </div>

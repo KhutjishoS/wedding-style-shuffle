@@ -43,41 +43,41 @@ const Navbar = () => {
 
   return (
     <>
-      <header
-        className={cn(
+    <header
+      className={cn(
           'fixed w-full top-0 z-40 transition-all duration-300 px-4 md:px-8 py-3',
-          scrolled ? 'bg-cream/90 shadow-sm backdrop-blur-sm' : 'bg-transparent'
-        )}
-      >
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/" className="relative z-10">
-            <h1 className="text-xl font-serif font-bold text-charcoal flex flex-col leading-tight relative">
-              <span className="text-rose text-3xl tracking-wider relative">
-                Abner
-                <span className="absolute -bottom-1 left-0 w-12 h-0.5 bg-rose"></span>
-              </span>
-              <span className="text-sage text-xl tracking-wide mt-1 relative pl-2">
-                Exclusive
-                <span className="absolute -bottom-1 left-0 w-16 h-0.5 bg-sage"></span>
-              </span>
-              <span className="text-charcoal text-lg tracking-wide mt-1 relative pl-4">
-                Hire
-                <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-charcoal"></span>
-              </span>
-            </h1>
-          </Link>
+        scrolled ? 'bg-cream/90 shadow-sm backdrop-blur-sm' : 'bg-transparent'
+      )}
+    >
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <Link to="/" className="relative z-10">
+          <h1 className="text-xl font-serif font-bold text-charcoal flex flex-col leading-tight relative">
+            <span className="text-rose text-3xl tracking-wider relative">
+              Abner
+              <span className="absolute -bottom-1 left-0 w-12 h-0.5 bg-rose"></span>
+            </span>
+            <span className="text-sage text-xl tracking-wide mt-1 relative pl-2">
+              Exclusive
+              <span className="absolute -bottom-1 left-0 w-16 h-0.5 bg-sage"></span>
+            </span>
+            <span className="text-charcoal text-lg tracking-wide mt-1 relative pl-4">
+              Hire
+              <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-charcoal"></span>
+            </span>
+          </h1>
+        </Link>
 
-          {/* Desktop Navigation */}
+        {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              to={link.href}
                 className="text-charcoal hover:text-rose transition-colors font-medium text-shadow-sm"
-              >
-                {link.name}
-              </Link>
-            ))}
+            >
+              {link.name}
+            </Link>
+          ))}
             <Link to="/cart" className="relative group">
               <ShoppingCart 
                 size={20} 
@@ -94,8 +94,8 @@ const Navbar = () => {
                   cartItemCount === 0 ? "hidden" : ""
                 )}
               >
-                {cartItemCount}
-              </span>
+                  {cartItemCount}
+                </span>
             </Link>
             <Link 
               to="/consultation" 
@@ -113,37 +113,38 @@ const Navbar = () => {
             >
               Enquire Now
             </Link>
-            <button
-              onClick={toggleMenu}
+        <button
+          onClick={toggleMenu}
               className="relative z-10 text-charcoal hover:text-rose transition-colors duration-300 text-shadow-md"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
           </div>
-        </div>
+      </div>
 
-        {/* Mobile Navigation */}
+      {/* Mobile Navigation */}
         <div
           className={cn(
-            'fixed inset-0 bg-cream transform transition-transform duration-300 ease-in-out md:hidden',
-            isOpen ? 'translate-x-0' : 'translate-x-full'
+            'fixed inset-0 bg-cream transform md:hidden',
+            // Only apply transition when opening or open
+            isOpen ? 'translate-x-0 transition-transform duration-300 ease-in-out' : 'translate-x-full'
           )}
         >
-          <div className="pt-20 px-4">
-            <nav className="flex flex-col space-y-6">
+        <div className="pt-20 px-4">
+          <nav className="flex flex-col space-y-6">
               {navLinks.map((link, index) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
+              <Link
+                key={link.href}
+                to={link.href}
                   className={cn(
                     "text-charcoal hover:text-rose transition-colors duration-300 text-lg font-bold",
                     index === 0 ? "mt-8" : ""
                   )}
-                  onClick={toggleMenu}
-                >
-                  {link.name}
-                </Link>
-              ))}
+                onClick={toggleMenu}
+              >
+                {link.name}
+              </Link>
+            ))}
             </nav>
           </div>
         </div>
@@ -161,15 +162,15 @@ const Navbar = () => {
             cartAnimation ? "scale-125" : ""
           )}
         />
-        {cartItemCount > 0 && (
+              {cartItemCount > 0 && (
           <span className={cn(
             "absolute -top-2 -right-2 bg-charcoal text-white text-xs w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300",
             cartAnimation ? "scale-125" : ""
           )}>
-            {cartItemCount}
-          </span>
-        )}
-      </Link>
+                  {cartItemCount}
+                </span>
+              )}
+            </Link>
     </>
   );
 };
