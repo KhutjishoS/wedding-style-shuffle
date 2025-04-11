@@ -67,15 +67,15 @@ const Contact = () => {
                     >
                       <div className="flex-shrink-0 w-10 h-10 bg-rose/10 rounded-full flex items-center justify-center group-hover:bg-rose/20 transition-colors">
                         <MapPin className="text-rose group-hover:scale-110 transition-transform" size={20} />
-                      </div>
-                      <div>
+                    </div>
+                    <div>
                         <h4 className="text-lg font-medium mb-1 group-hover:text-rose transition-colors">Visit Our Office</h4>
-                        <p className="text-charcoal/70">
-                          369 Panorama Road<br />
-                          The Reeds<br />
-                          Centurion
-                        </p>
-                      </div>
+                      <p className="text-charcoal/70">
+                        369 Panorama Road<br />
+                        The Reeds<br />
+                        Centurion
+                      </p>
+                    </div>
                     </a>
                   </div>
                   
@@ -86,13 +86,13 @@ const Contact = () => {
                     >
                       <div className="flex-shrink-0 w-10 h-10 bg-rose/10 rounded-full flex items-center justify-center group-hover:bg-rose/20 transition-colors">
                         <Mail className="text-rose group-hover:scale-110 transition-transform" size={20} />
-                      </div>
-                      <div>
+                    </div>
+                    <div>
                         <h4 className="text-lg font-medium mb-1 group-hover:text-rose transition-colors">Email Us</h4>
-                        <p className="text-charcoal/70">
-                          hello@abnerexclusive.co.za
-                        </p>
-                      </div>
+                      <p className="text-charcoal/70">
+                        hello@abnerexclusive.co.za
+                      </p>
+                    </div>
                     </a>
                   </div>
                   
