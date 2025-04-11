@@ -1,7 +1,98 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Add custom styles for select dropdowns */
+select {
+  scrollbar-width: thin;
+  scrollbar-color: #E11D48 #f1f1f1;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  position: relative;
+  z-index: 1;
+}
+
+select::-webkit-scrollbar {
+  width: 8px;
+}
+
+select::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+select::-webkit-scrollbar-thumb {
+  background: #E11D48;
+  border-radius: 4px;
+}
+
+/* Control the dropdown size */
+select[name="time"],
+select[name="eventType"],
+select[name="guests"] {
+  height: 40px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+}
+
+/* Style for options */
+select option {
+  padding: 8px 12px;
+  cursor: pointer !important;
+  user-select: none;
+  -webkit-user-select: none;
+  font-size: 14px;
+  background-color: white;
+  color: #333;
+  position: relative;
+  z-index: 2;
+}
+
+/* Add hover effect for options */
+select option:hover {
+  background-color: rgba(225, 29, 72, 0.1) !important;
+  cursor: pointer !important;
+}
+
+/* Control the dropdown list height when opened */
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(225, 29, 72, 0.2);
+}
+
+select option:checked {
+  background-color: #E11D48 !important;
+  color: white !important;
+}
+
+/* Webkit specific styles */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select {
+    max-height: none;
+  }
+  
+  select option {
+    margin: 0;
+    padding: 8px 12px;
+    border: none;
+    outline: none;
+    transition: background-color 0.2s ease;
+  }
+}
+
+/* Firefox specific styles */
+@-moz-document url-prefix() {
+  select {
+    max-height: none;
+    overflow-y: visible;
+  }
+  
+  select option {
+    padding: 8px 12px;
+  }
+}
 
 @layer base {
   :root {
