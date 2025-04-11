@@ -102,11 +102,11 @@ export function ItemDetailsModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className={`${isFullscreen ? 'max-w-[95vw] max-h-[95vh]' : 'max-w-4xl'}`}>
+      <DialogContent className={`${isFullscreen ? 'max-w-[95vw] max-h-[95vh]' : 'max-w-4xl'} overflow-y-auto`}>
         <DialogHeader>
-          <DialogTitle className="text-2xl font-serif">{item.name}</DialogTitle>
+          <DialogTitle className="text-xl sm:text-2xl font-serif mt-2 sm:mt-0">{item.name}</DialogTitle>
         </DialogHeader>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-2 sm:mt-0">
           <div className={`relative ${isFullscreen ? 'aspect-auto h-[80vh]' : 'aspect-square'}`}>
             <div 
               className="relative w-full h-full overflow-hidden rounded-lg"
@@ -117,8 +117,8 @@ export function ItemDetailsModal({
             >
               <img
                 src={images[currentImageIndex]}
-              alt={item.name}
-                className={`object-contain w-full h-full transition-transform duration-300 ${
+                alt={item.name}
+                className={`object-contain w-full h-full max-h-[50vh] md:max-h-none transition-transform duration-300 ${
                   isZoomed ? 'cursor-move' : 'cursor-zoom-in'
                 }`}
                 style={{
@@ -203,7 +203,7 @@ export function ItemDetailsModal({
               </div>
             )}
           </div>
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             <div>
               <span className="inline-block py-1 px-3 rounded-full bg-rose/10 text-rose text-sm font-medium mb-2">
                 {item.category}
