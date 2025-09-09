@@ -1,69 +1,84 @@
-# Welcome to your Lovable project
+Here’s a clean README rewrite for your project that removes all references to Lovable AI and keeps it professional, while still guiding others on how to edit and deploy it:
+# Project README
 
-## Project info
+## Project Info
 
-**URL**: https://lovable.dev/projects/b960b721-94e7-4367-a93d-880bd5fb0fb0
+This project is a modern web application built with:
 
-## How can I edit this code?
+* **Vite**
+* **TypeScript**
+* **React**
+* **shadcn-ui**
+* **Tailwind CSS**
 
-There are several ways of editing your application.
+# Getting Started
 
-**Use Lovable**
+You can work on this project in several ways depending on your setup and preferences.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b960b721-94e7-4367-a93d-880bd5fb0fb0) and start prompting.
+# 1. Local Development (Preferred)
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Make sure you have **Node.js** and **npm** installed. If not, install Node.js with [nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Step 1: Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Step 2: Navigate to the project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Step 3: Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+This will launch a local development server with hot-reloading for instant preview.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+# 2. Editing Files on GitHub
 
-**Use GitHub Codespaces**
+* Navigate to the file you want to update.
+* Click the **Edit (pencil)** icon in the top right.
+* Make your changes and commit them directly to the branch.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# 3. GitHub Codespaces
 
-## What technologies are used for this project?
+If you prefer not to work locally, you can use **GitHub Codespaces**:
 
-This project is built with .
+* Go to your repository’s main page.
+* Click **Code** → **Codespaces** → **New codespace**.
+* Edit and run the project inside the Codespace environment.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+# Deployment
 
-## How can I deploy this project?
+You have a few deployment options for this project:
 
-Simply open [Lovable](https://lovable.dev/projects/b960b721-94e7-4367-a93d-880bd5fb0fb0) and click on Share -> Publish.
+# Deploy to Netlify
 
-## I want to use a custom domain - is that possible?
+1. Push your code to GitHub.
+2. Sign in to [Netlify](https://www.netlify.com/).
+3. Select **New site from Git** and connect your repo.
+4. Set the build command to:
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+   ```sh
+   npm run build
+   ```
+
+   and the publish directory to:
+
+   ```sh
+   dist
+   ```
+
+# Deploy to Vercel
+
+1. Push your code to GitHub.
+2. Go to [Vercel](https://vercel.com/).
+3. Import your project repo.
+4. Vercel will detect the framework automatically and handle deployment.
+
+---
+
+# Custom Domains
+
+If you’re using **Netlify** or **Vercel**, you can easily connect your custom domain through their dashboard.
