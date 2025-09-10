@@ -1,5 +1,4 @@
 # Project README
-
 ## Project Info
 
 This project is a modern web application built with:
